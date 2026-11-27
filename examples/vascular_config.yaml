@@ -1,0 +1,25 @@
+# PA-FORGE Research Edition: vessel-rich RAW SIGNALS + reconstructed image
+# THIS CONFIGURATION IS SYNTHETIC AND IS NOT CLINICALLY VALIDATED.
+anatomy: vascular
+vascular_pattern: branching
+vascular_branch_levels: 3
+vascular_density: 1.2
+anatomy_engine: procedural
+seed: 2026
+samples: 2
+grid_size: 96
+fov_m: 0.025
+time_steps: 420
+wavelength_nm: 800
+illumination_model: uniform_idealized  # ideal physics ablation; NOT tissue photon transport
+transducers: 48
+geometry: circle
+detector_filter: false                 # required for an exact matched numerical inversion
+reconstruction_method: iterative
+reconstruction_iterations: 10
+reconstruction_l2: 0.001
+export_truth: true
+export_images: true
+noise:
+  enabled: false                      # ALL noise engines ignored even if configured
+  engines: [gaussian, colored, impulsive, drift]

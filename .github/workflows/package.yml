@@ -1,0 +1,23 @@
+name: package-smoke
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+env:
+  OMP_NUM_THREADS: "1"
+  OPENBLAS_NUM_THREADS: "1"
+  MKL_NUM_THREADS: "1"
+jobs:
+  build-and-install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --upgrade pip build twine
+      - run: python -m build
+      - run: python -m twine check dist/*
+      - run: python -m pip install dist/*.whl
+      - run: python -c "import paforge; from importlib.metadata import version; assert paforge.__version__ == version('pa-forge')"
+      - run: paforge --help

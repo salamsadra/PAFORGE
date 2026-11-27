@@ -1,0 +1,19 @@
+# All optional fields inherit documented, illustrative defaults.
+anatomy: forearm
+seed: 2026
+samples: 2
+grid_size: 96
+time_steps: 380
+wavelength_nm: 800
+transducers: 64
+geometry: circle
+center_frequency_hz: 1800000
+bandwidth_hz: 1800000
+reconstruct: true
+export_images: true
+export_truth: true
+# All noise is completely disabled unless enabled=true.
+noise:
+  enabled: false
+  engines: [gaussian, colored, impulsive, drift]
+  relative_std: 0.025

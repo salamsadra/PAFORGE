@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use PAForge, please cite the software version used."
+title: "PAForge: Experiment-informed photoacoustic data generation"
+type: software
+version: 0.10.0.dev5
+authors:
+  - name: "PA-FORGE contributors"
+license: MIT
+repository-code: "https://github.com/salamsadra/PA-dataset-generator"
